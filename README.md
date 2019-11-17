@@ -23,3 +23,5 @@ parser_utils.py: a python file that gathers the function you used in parser.py.
 index_utils.py: a python file that contains the functions you used for creating indexes.
 utils.py: a python file that gather functions you need in more than one of the previous files like (collector, parser, etc.)
 ???
+
+In Jupyter Folder you can find clean version all codes.
