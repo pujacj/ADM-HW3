@@ -34,3 +34,23 @@ def getlinks():
 	df_links.index = np.arange(1,len(df_links)+1)
 
     return df_links
+
+def geturl():
+	#create a list to store all the indices of the URLs which throw error
+	index_lst = []	
+
+	#iterate over the dataframe of links and crawl data for each index by using time function between each request made to the Wikipedia page
+	for i,j in df_links["url"].items():
+	    time.sleep(5)
+	    try:
+	        req = requests.get(j)
+	        with open("articles/article_{}.html".format(i),"w", encoding="utf-8") as file:
+	            file.write(str(req.content))
+	        print(i,j,"downloaded")
+	    except:
+	        print(i,j,"error")
+	        index_lst.append(i)
+	        time.sleep(20*60)
+	        i = i+1
+	        continue
+	return index_lst  
